@@ -1,0 +1,64 @@
+﻿@model ProductModel
+@*Generated from Custom Template.*@
+@*Model namespace using directive should be added to _ViewImports.cshtml.*@
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["Message"] is not null)
+{
+    <p class="bg-warning text-black">@TempData["Message"]</p>
+}
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.UnitPriceOutput)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.UnitPriceOutput)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.ExpirationDateOutput)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.ExpirationDateOutput)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.IsDiscontinuedOutput)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.IsDiscontinuedOutput)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.CategoryOutput)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.CategoryOutput)
+        </dd>
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.StoresOutput)
+        </dt>
+        <dd class="col-10">
+            @Html.Raw(Model.StoresOutput)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>@:&nbsp;|&nbsp;
+    }
+    <a asp-action="Index">Back to List</a>
+</div>
