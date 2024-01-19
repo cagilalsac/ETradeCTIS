@@ -99,12 +99,14 @@ namespace DataAccess.Migrations
                 name: "ProductStores",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     StoreId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductStores", x => new { x.ProductId, x.StoreId });
+                    table.PrimaryKey("PK_ProductStores", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ProductStores_Products_ProductId",
                         column: x => x.ProductId,
@@ -123,6 +125,11 @@ namespace DataAccess.Migrations
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductStores_ProductId",
+                table: "ProductStores",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductStores_StoreId",

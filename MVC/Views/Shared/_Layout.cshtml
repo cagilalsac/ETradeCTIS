@@ -21,12 +21,9 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         @* Database Seed *@
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Db" asp-action="Seed">Seed Database</a>
-                            </li>
-                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Db" asp-action="Seed">Seed Database</a>
+                        </li>
 
                         @* Menu *@
                         <li class="nav-item">

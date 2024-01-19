@@ -74,13 +74,21 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Entities.ProductStore", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("StoreId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId", "StoreId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("StoreId");
 
